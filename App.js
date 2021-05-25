@@ -1,28 +1,43 @@
 import React, { useState } from 'react';
 import { Button } from 'react-native';
 import { View } from 'react-native';
-import Fetchpostsample from './fetchsample/Fetchpostsample';
-import Fetchsample1 from './fetchsample/Fetchsample1';
+import Category_add from './Category/Category_add';
+import Category_list from './Category/Category_list';
+import Product_list from './Product/Product_list';
+import Product_detail from './Product/Product_detail';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './routesample/Homescreen';
 
 
 export default function App() {
 
-  const [onoff, setOnoff] = useState(false)
-
+  const Stack = createStackNavigator();
 
 
 
   return (
-    <View>
+        <NavigationContainer>
 
-      <Fetchsample1></Fetchsample1>
+           <Stack.Navigator>
+
+         <Stack.Screen name="Home" component={HomeScreen} />
+         <Stack.Screen name="Products" component={Product_list} />
+         <Stack.Screen name="Productdetail" component={Product_detail} />
+         <Stack.Screen name="Category" component={Category_list} />
+         <Stack.Screen name="addCat" component={Category_add} />
+
+
+
+       </Stack.Navigator>
+     </NavigationContainer>
+
+//    <View>
+
+ //    <Category_list></Category_list>
      
-      {
-      /*  onoff ? (<View>On</View>) : (<View>Off</View>)*/
-      }
 
-      {/* <Button title='On - Off' onPress={() => setOnoff(!onoff)}>On - Off</Button> */}
-    </View>
+  //  </View>
   );
 
 }
