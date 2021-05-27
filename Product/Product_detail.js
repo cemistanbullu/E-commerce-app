@@ -4,7 +4,8 @@ import {ListItem, Icon} from 'react-native-elements';
 import {InteractionManager} from 'react-native';
 
 
-export default function Product_detail() {
+function Product_detail({ route, navigation }) {
+    const { id } = route.params;
 
     const [products, setProducts] = useState([]);
 
@@ -17,17 +18,27 @@ export default function Product_detail() {
     const fillData = (id) => {
         fetch('https://northwind.vercel.app/api/products/'+id)
         .then((res) => res.json())
-        .then((data) => {
+        .then((products) => {
 
-           setProducts(data);
+           setProducts(products);
         })
     }
+/*
+const { itemId } = route.params;
 
+const [product, setproduct] = useState({});
 
+useEffect(() => {
+  fetch('https://northwind.vercel.app/api/products/' + itemId)
+    .then((res) => res.json())
+    .then((product) => {
+      setproduct(product);
+    });
+}, []);
+*/
     return (
        <View > 
-        {
-            products.map((item) => (
+        {products.map((item) => (
                 <ListItem>
                 <ListItem.Content>
 
@@ -41,5 +52,8 @@ export default function Product_detail() {
 
 </View>
 
-    )
+);
 }
+    
+
+export default Product_detail;

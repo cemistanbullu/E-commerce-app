@@ -51,11 +51,19 @@ export default function Product_list({ navigation }) {
                     products.slice(0,8).map((item) => (
                         <ListItem>
                         <ListItem.Content>
-                            <View  style={{ flexDirection:'row', justifyContent:'space-around', backgroundColor:'yellow' }}>
+                            <View>
                           <ListItem.Title>{item.name}</ListItem.Title>
-                          <ListItem.Subtitle>{item.unitPrice + ' Türk Lirası'}</ListItem.Subtitle>
-                          </View>
-                          <View style={{   flexDirection: 'row', backgroundColor: 'tomato' }}>
+                          <ListItem.Subtitle>
+                          Price: {item.unitPrice}$
+                          </ListItem.Subtitle>  
+                          <ListItem.Subtitle>
+                          Quantity Per Unit: {item.quantityPerUnit} 
+                          </ListItem.Subtitle>  
+                          <ListItem.Subtitle>
+                          Stock in: {item.unitsInStock}
+                          </ListItem.Subtitle>
+                                     </View>
+                          <View >
                           <Icon name='delete' onPress={() => deleteProduct(item.id)} />
                           <Icon name='info' onPress={() => gotoDetailPage(item.id)}/>
                           </View>

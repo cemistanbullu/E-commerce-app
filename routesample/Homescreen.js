@@ -7,7 +7,7 @@ export default function Homescreen({ navigation }) {
 
     const goContact = () => {
        //  navigation.navigate('Contact');
-        navigation.push('Contact');
+        navigation.push('order');
     }
 
     const goProducts = () =>{
@@ -20,8 +20,9 @@ export default function Homescreen({ navigation }) {
 
     return (
         <View>
+            
             <Text>Home Screen!</Text>
-            <Button onPress={() => goContact()} title='Go to Contact!'></Button>
+            <Button onPress={() => goContact()} title='Go to Order!'></Button>
             <Button onPress={() => goProducts()} title='Go to Products!'></Button>
             <Button onPress={() => goCategory()} title='Go to Categories!'></Button>
 

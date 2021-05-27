@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import {ListItem, Icon} from 'react-native-elements';
-import {InteractionManager} from 'react-native';
-import {Button} from 'react-native';
-
+import {InteractionManager,View, Text, StyleSheet,Button,Alert} from 'react-native';
 
 
 export default function Category_list({ navigation }) {
@@ -46,20 +43,32 @@ export default function Category_list({ navigation }) {
         navigation.navigate('addCat')
     }
 
+    
+        const simpleAlertHandler = () => {
+          alert('Item Deleted');
+        };
+
+
+
     return (
-        <View  style = {styles.MainContainer} >
+        <View>
+  
                 {
                     
+                    
                     categories.slice(0,7).map((item)  => (
-                        <View style={{}} >
-                        <ListItem  style={{}}>
-                        <ListItem.Content  style={{}}>
-                         <View style={{ }}>
-                          <ListItem.Title style={{}}>Name:     {item.name}</ListItem.Title>
-                          <ListItem.Title style={{ }}>Description:   {item.description}</ListItem.Title>
+                        <View >
+                               
+                        <ListItem >
+                        <ListItem.Content  >
+                         <View>
+                          <ListItem.Title>Name: {item.name}</ListItem.Title>
+                          <ListItem.Subtitle>Description: {item.description}</ListItem.Subtitle>
+                        
                         </View>
-                          <View style={{padding: 0,flex:3, alignSelf:'center'}}>
-                          <Icon name='delete' onPress={() => deleteCategory(item.id)} />
+                          <View >
+                          <Icon name='delete' onPress={simpleAlertHandler} />
+                          <Button title="Simple Alert" onPress={simpleAlertHandler} />
                           </View>
                         </ListItem.Content>
                       </ListItem>
@@ -76,22 +85,6 @@ export default function Category_list({ navigation }) {
     
 }
 
-const styles = StyleSheet.create({
      
-    MainContainer: 
-    {
-    flex: 1,
-     
-    // Set content's vertical alignment.
-    justifyContent: 'center',
-     
-    // Set content's horizontal alignment.
-    alignItems: 'center',
-     
-    // Set hex color code here.
-    backgroundColor: '#FFEB3B',
-     
-    },
 
-   
-});
+   // onPress={() => deleteCategory(item.id)}
