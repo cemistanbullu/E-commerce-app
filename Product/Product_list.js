@@ -35,9 +35,6 @@ export default function Product_list({ navigation }) {
             .then((data) => {
                  fillData(data);
         })
-        .then((res)=> {
-            alert('Product ID -> ' + id + ' is Deleted!!');
-        })
 
     }
 

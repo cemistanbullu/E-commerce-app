@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { View, Text } from 'react-native';
 import {ListItem, Icon} from 'react-native-elements';
 import {InteractionManager} from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
 
 
 function Product_detail({ route, navigation }) {
-   /* const { id } = route.params;
+    const { id } = route.params;
 
     const [products, setProducts] = useState([]);
 
@@ -23,22 +22,22 @@ function Product_detail({ route, navigation }) {
 
            setProducts(products);
         })
-    }*/
+    }
+/*
+const { itemId } = route.params;
 
-const { id } = route.params;
-
-const [products, setProducts] = useState({});
+const [product, setproduct] = useState({});
 
 useEffect(() => {
-  fetch('https://northwind.vercel.app/api/products/' + id)
+  fetch('https://northwind.vercel.app/api/products/' + itemId)
     .then((res) => res.json())
-    .then((products) => {
-      setProducts(products);
+    .then((product) => {
+      setproduct(product);
     });
 }, []);
-
+*/
     return (
-      /* <View > 
+       <View > 
         {products.map((item) => (
                 <ListItem>
                 <ListItem.Content>
@@ -52,16 +51,7 @@ useEffect(() => {
         }
 
 </View>
-*/
 
-<View>
-
-
-                <TextInput>dfv</TextInput>
-          
-        
-
-</View>
 );
 }
     

@@ -36,9 +36,9 @@ export default function App() {
        </Stack.Navigator>
      </NavigationContainer>
 
-  /*  <View>
+    /*<View>
 
-     <Category_list></Category_list>
+     <Order_list></Order_list>
      
 
     </View>*/
