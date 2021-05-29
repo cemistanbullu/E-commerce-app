@@ -7,7 +7,11 @@ import basemanager from '../service/baseservice';
 
 const Category_add = () => {
 
-    basemanager.get('api/products').then((data)=>{
+    basemanager.get('api/products')
+    .then((res)=> {
+        alert('You can add your special products here!!! ' );
+    })
+    .then((data)=>{
         console.log(data);
     });    
    
@@ -17,30 +21,12 @@ const Category_add = () => {
 
     const send = () => {
 
-        // let requestOptions = {
-        //     method:'POST',
-        //     body:JSON.stringify({name:categoryName, description:description}),
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //       }
-        // }
-
-        // fetch(config.apiurl + 'api/categories',requestOptions)
-        // .then((res) => res.json())
-        // .then((data) => {
-
-        //    alert('Success!');
-
-        // })
-
         basemanager.post('api/categories',{name:categoryName, description:description})
         .then((res)=> {
-            alert('Success!!');
+            alert('Successfuly added!!');
         })
-        
-
     }
+
 
     return (
         <View>

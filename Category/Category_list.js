@@ -36,17 +36,17 @@ export default function Category_list({ navigation }) {
             .then((data) => {
                  fillData(data);
         })
+        .then((res)=> {
+            alert('Product ID -> ' + id + ' is Deleted!!');
+        })
 
     }
 
     const goaddCat = () =>{
         navigation.navigate('addCat')
+       
     }
 
-    
-        const simpleAlertHandler = () => {
-          alert('Item Deleted');
-        };
 
 
 
@@ -67,8 +67,7 @@ export default function Category_list({ navigation }) {
                         
                         </View>
                           <View >
-                          <Icon name='delete' onPress={simpleAlertHandler} />
-                          <Button title="Simple Alert" onPress={simpleAlertHandler} />
+                          <Icon name='delete' onPress={() => deleteCategory(item.id)} />
                           </View>
                         </ListItem.Content>
                       </ListItem>
@@ -87,4 +86,4 @@ export default function Category_list({ navigation }) {
 
      
 
-   // onPress={() => deleteCategory(item.id)}
+   

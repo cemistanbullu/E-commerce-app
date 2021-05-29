@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text,TouchableOpacity,SafeAreaView,ScrollView } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { ListItem,Icon } from 'react-native-elements';
 import { NavigationContainer } from '@react-navigation/native';
 
 function Order_list({ route, navigation }) {
@@ -19,7 +19,27 @@ function Order_list({ route, navigation }) {
       .then((orders) => {
         setorders(orders);
       });
+
+    
   };
+
+  const deleteCategory = (id) => {
+        
+    let requestoptions = {
+        method : 'DELETE',
+        body: JSON.stringify({id:id})
+    }
+
+    fetch('https://northwind.vercel.app/api/orders/' + id, requestoptions)
+        .then((res) => res.json ())
+        .then((data) => {
+             fillData(data);
+    })
+    .then((res)=> {
+        alert('Order ID -> ' + id + ' is Deleted!!');
+    })
+
+}
 
   return (
     
@@ -39,6 +59,9 @@ function Order_list({ route, navigation }) {
                 <ListItem.Subtitle>
                 Shipped Date: {detail.shippedDate}
                 </ListItem.Subtitle>
+                <View >
+                          <Icon name='delete' onPress={() => deleteCategory(detail.id)} />
+                          </View>
 
               </ListItem.Content>
             </ListItem>
