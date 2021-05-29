@@ -35,13 +35,14 @@ export default function App() {
 
        </Stack.Navigator>
      </NavigationContainer>
+/*
+   <View>
 
-  /*  <View>
-
-     <Category_list></Category_list>
+     <Product_list></Product_list>
      
 
-    </View>*/
+    </View>
+    */
   );
 
 }

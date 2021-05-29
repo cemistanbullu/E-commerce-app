@@ -8,9 +8,6 @@ import basemanager from '../service/baseservice';
 const Category_add = () => {
 
     basemanager.get('api/products')
-    .then((res)=> {
-        alert('You can add your special products here!!! ' );
-    })
     .then((data)=>{
         console.log(data);
     });    
@@ -171,3 +168,8 @@ const styles = StyleSheet.create({
 
 
 });
+
+/*let images = [{num:1}, {num:2},{num:3}]
+images.map((resim) = (
+    <Card.Image style={styles.image2} source={require('../Images/vegetable'+resim.num+'.jpg')} />
+))*/

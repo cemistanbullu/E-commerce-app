@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text,TouchableOpacity,SafeAreaView,ScrollView } from 'react-native';
-import { ListItem,Icon } from 'react-native-elements';
+import { View,TouchableOpacity,SafeAreaView,ScrollView, StyleSheet,TouchableHighlight,Image,ImageBackground} from 'react-native';
+import { ListItem,Icon ,Card } from 'react-native-elements';
 import { NavigationContainer } from '@react-navigation/native';
 
 function Order_list({ route, navigation }) {
@@ -42,35 +42,92 @@ function Order_list({ route, navigation }) {
 }
 
   return (
-    
-
+    <View style={styles.container}>
+    <ImageBackground source={require('../Images/background.jpg')} style={styles.image1} >
       <View>
         {orders.slice(0,8).map((detail) => (
-          <View>
+          <Card >
+          <View style={styles.card}>
             <ListItem>
               <ListItem.Content>
-                <ListItem.Title>
-                  Customer: {detail.customerId}
-                </ListItem.Title>
-                <ListItem.Subtitle>
-                  Order date: {detail.orderDate}
-                  
-                </ListItem.Subtitle>
-                <ListItem.Subtitle>
-                Shipped Date: {detail.shippedDate}
-                </ListItem.Subtitle>
-                <View >
-                          <Icon name='delete' onPress={() => deleteCategory(detail.id)} />
-                          </View>
+                <ListItem.Title style={styles.textStyle}> Customer: {detail.customerId} </ListItem.Title>
+                <Card.Divider />
+                <ListItem.Subtitle> Order date: {detail.orderDate} </ListItem.Subtitle>
+                <ListItem.Subtitle> Shipped Date: {detail.shippedDate} </ListItem.Subtitle>
+                <TouchableHighlight style={styles.deleteicon} onPress={() => { deleteCategory(detail.id) }}>
+                                                <View >
+                                                    <Icon name='delete' />
+                                                    <text>Delete </text>
+                                                </View>
+                                            </TouchableHighlight>
 
               </ListItem.Content>
             </ListItem>
           </View>
+          </Card>
         ))}
       </View>
-     
+      </ImageBackground>
+        </View>
   );
 }
-
-
 export default Order_list;
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'flex-end',
+
+  },
+  card: {
+      backgroundColor: '#fff',
+      width: "%100",
+      height: "%100",
+      /* shadowColor: "#000",
+       shadowOffset: {
+           width: 5,
+           height: 5,
+       },
+       shadowOpacity: 4.32,
+       shadowRadius: 5.46,
+       elevation: 9,*/
+
+  },
+  image1:{
+      flex: 1,
+      resizeMode: "cover",
+      justifyContent: "center",
+      width: '100%',
+      height: '100%',
+  },
+
+  deleteicon: {
+      backgroundColor: "#fff",
+      borderRadius: 15,
+      width: 60,
+      height: 60,
+      marginTop: 28,
+      paddingTop:10,
+      textAlign: 'center',
+      marginHorizontal: 225,
+      shadowColor: "#000",
+      shadowOffset: {
+          width: 0,
+          height: 1,
+      },
+      shadowOpacity: 1.22,
+      shadowRadius: 2.22,
+
+      elevation: 3,
+
+  },
+ 
+  textStyle: {
+      color: "Black",
+      fontSize: 16,
+      fontWeight: 'bold',
+      fontFamily: 'Tahoma'
+
+  }
+});

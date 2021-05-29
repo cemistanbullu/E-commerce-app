@@ -1,29 +1,45 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { View, Text, Image,StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-class Bar extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Left</Text>
-        <Text>TopBar</Text>
-        <Text>Right</Text>
+function Bar() {
+  return (
+    <View style={{    
+            flexDirection: "row",
+          padding:10,
+          backgroundColor:'#fff',
+            alignContent: "space-between",
+          }}>
+      <Image
+        style={{ width: 50, height: 50 }}
+       // source={require('../assets/img/dish.png')}
+      />
+      <View style={styles.nameContainer}>
+      <Text style={styles.brandname}>GG Food Shop</Text>
       </View>
-    );
-  }
+    </View>
+  );
 }
 
+
 const styles = StyleSheet.create({
-  container: {
-    alignSelf: 'stretch',
-    height: 52,
-    flexDirection: 'row', // row
-    backgroundColor: 'yellow',
-    alignItems: 'center',
-    justifyContent: 'space-between', // center, space-around
-    paddingLeft: 10,
-    paddingRight: 10
+  nameContainer: {
+    flex: 1,
+    paddingHorizontal:20,
+    paddingVertical:15,
+    alignContent:'flex-start',
+    alignItems:'flex-start',
+    
+  },
+  brandname: {
+    color:'#4d4d4d',
+    fontSize:18,
+    fontWeight:'800'
+
+
   }
+
 });
 
 export default Bar;
