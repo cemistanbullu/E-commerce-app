@@ -57,8 +57,8 @@ function Order_list({ route, navigation }) {
               <ListItem.Content>
                 <ListItem.Title style={styles.textStyle}> Customer: {detail.customerId} </ListItem.Title>
                 <Card.Divider />
-                <ListItem.Subtitle> Order date: {detail.orderDate} </ListItem.Subtitle>
-                <ListItem.Subtitle> Shipped Date: {detail.shippedDate} </ListItem.Subtitle>
+                <ListItem.Subtitle style={styles.styleSubtitle}> Order date: {detail.orderDate} </ListItem.Subtitle>
+                <ListItem.Subtitle style={styles.styleSubtitle}> Shipped Date: {detail.shippedDate} </ListItem.Subtitle>
                 <TouchableHighlight style={styles.deleteicon} onPress={() => { deleteCategory(detail.id) }}>
                                                 <View >
                                                     <Icon name='delete' />
@@ -85,20 +85,6 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'flex-end',
   },
-  card: {
-      //backgroundColor: '#ffca3a',
-      width: "%100",
-      height: "%100",
-      /* shadowColor: "#000",
-       shadowOffset: {
-           width: 5,
-           height: 5,
-       },
-       shadowOpacity: 4.32,
-       shadowRadius: 5.46,
-       elevation: 9,*/
-
-  },
   image1:{
       flex: 1,
       resizeMode: "cover",
@@ -108,7 +94,7 @@ const styles = StyleSheet.create({
   },
 
   deleteicon: {
-      backgroundColor: "#1982c4",
+      backgroundColor: "#8B75B6",
       borderRadius: 15,
       width: 60,
       height: 60,
@@ -126,10 +112,14 @@ const styles = StyleSheet.create({
       elevation: 3,
   },
   textStyle: {
-      color: "black",
-      fontSize: 16,
-      fontWeight: 'bold',
-      fontFamily: 'Tahoma'
+    color: "Black",
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'Tahoma'
 
-  }
+  },
+  styleSubtitle: {
+    marginVertical: 3,
+    fontWeight:'bold'
+  },
 });

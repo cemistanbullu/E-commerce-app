@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     height: 52,
     flexDirection: 'row', // row
-    backgroundColor: "#ffca3a",
+    backgroundColor: "#8B75B6",
     alignItems: 'center',
     justifyContent: 'space-between', // center, space-around
     paddingLeft: 10,

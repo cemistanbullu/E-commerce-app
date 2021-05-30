@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     },
 
     deleteicon: {
-        backgroundColor: "#1982c4",
+        backgroundColor: "#8B75B6",
         borderRadius: 15,
         width: 60,
         height: 60,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
 
     },
     viewBtn2: {
-        backgroundColor: "#8B75B6",
+        backgroundColor: "#6F508E",
         borderRadius: 15,
         width: 160,
         height: 60,
