@@ -59,16 +59,17 @@ export default function Category_list({ navigation }) {
             <ImageBackground source={require('../Images/background.jpg')} style={styles.image1} >
                 <View>
                     {
-                        categories.slice(0, 3).map((item,key) => (
+                        categories.slice(0, 7).map((item,key) => (
                             <Card >
                                 <View style={styles.card} >
                                     <ListItem >
                                         <ListItem.Content  >
                                             <View>
                                                 <ListItem.Title style={styles.textStyle}>Name: {item.name}</ListItem.Title>
-                                                <Card.Image style={styles.image2} source={require('../Images/vegetable'+(key+1)+'.jpg')} />
+                                                
+                                                <Card.Image style={styles.image2} source={require('../Images/Categories'+(key+1)+'.jpg')} />
                                                 <Card.Divider />
-                                                <ListItem.Subtitle >Description: {item.description}</ListItem.Subtitle>
+                                                <ListItem.Subtitle style={styles.styleSubtitle} >Description: {item.description}</ListItem.Subtitle>
                                             </View>
                                             <TouchableHighlight onPress={() => { deleteCategory(item.id) }}>
                                                 <View style={styles.deleteicon}>
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     card: {
         backgroundColor: '#fff',
         width: "%100",
-        height: 280,
+        height: 430,
         /* shadowColor: "#000",
          shadowOffset: {
              width: 5,
@@ -138,15 +139,11 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     image2: {
-        // flex: 1,
-        //  resizeMode: "",
-        justifyContent: "center",
-
-        width: 100,
-        height: 100,
+        width: 200,
+        height: 200,
         marginVertical: 10,
-        marginHorizontal: 100,
-    },
+        marginHorizontal: 40,
+      },
 
     deleteicon: {
         backgroundColor: "#8B75B6",
@@ -185,17 +182,18 @@ const styles = StyleSheet.create({
         shadowOpacity: 4.32,
         shadowRadius: 5.46,
         elevation: 9,
+        marginBottom:20,
 
     },
   
 
     textStyle: {
         color: "Black",
-        fontSize: 16,
+        fontSize: 20,
         fontWeight: 'bold',
         fontFamily: 'Tahoma'
-
-    },
+    
+      },
     buttonText: {
         color: "#EEEDE7",
         fontSize: 16,
@@ -205,7 +203,11 @@ const styles = StyleSheet.create({
     },
 
  
-
+    styleSubtitle: {
+        marginVertical: 10,
+        fontWeight:'bold',
+        fontSize:15,
+      },
 });
 
    
