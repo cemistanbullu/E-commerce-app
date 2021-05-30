@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import {ListItem, Icon,Card} from 'react-native-elements';
 import {InteractionManager,View, Text, StyleSheet,Button,Alert,TouchableHighlight,TouchableOpacity,Image,ImageBackground,StatusBar} from 'react-native';
-export default function Product_list({ navigation }) {
+import TopBar from '../components/TopBar';
+import Product_detail from '../Product/Product_detail'
+import { NavigationContainer } from '@react-navigation/native';
+
+export default function Product_list({ route,navigation }) {
 
 
    const [products, setproducts] = useState([]);
@@ -38,26 +42,20 @@ export default function Product_list({ navigation }) {
         })
 
     }
-
-    const gotoDetailPage = (id)=>{
-
-        navigation.navigate('Productdetail', 'https://northwind.vercel.app/api/products/' + id)
-
-    }
     
+    const goaddCat = () =>{
+        navigation.navigate('addCat')
+       
+    }
+    const gotoDetailPage = (id)=>{
+        navigation.navigate('Productdetail', 'https://northwind.vercel.app/api/products/' + id)
+    }
     return (
         <View style={styles.container}>
+            <TopBar/>
         <ImageBackground source={require('../Images/background.jpg')} style={styles.image1} >
-        <View>  
-   <StatusBar  
-     backgroundColor = "#b3e6ff"  
-     barStyle = "dark-content"
-     
-   />  
-</View>  
             <View>
-                {
-                    
+                {      
                     products.slice(0,8).map((item) => (
                         <Card >
                         <ListItem>
@@ -75,24 +73,29 @@ export default function Product_list({ navigation }) {
                           Stock in: {item.unitsInStock}
                           </ListItem.Subtitle>
                                      </View>
-                                     <TouchableHighlight  onPress={() => { deleteProduct(item.id) }}>
-                                                <View style={styles.icons}>
+                                     <View style={styles.icons}>
+                                                    <TouchableHighlight  onPress={() => { gotoDetailPage(item.id)}}>
+                                                    <View style={styles.infoicon}>   
+                                                    <Icon name='info' />
+                                                    <text>Info </text>
+                                                    </View>
+                                                    </TouchableHighlight>
+                                                    <TouchableHighlight  onPress={() => { deleteProduct(item.id) }}>
                                                     <View style={styles.deleteicon}>
                                                     <Icon name='delete'/>
                                                     <text>Delete </text>
                                                     </View>
-                                                    <View style={styles.infoicon}>
-                                                    <Icon name='info' onPress={() => gotoDetailPage(item.id)}/>
-                                                    <text>Info </text>
-                                                    </View>
+                                                    </TouchableHighlight>
                                                 </View>
-                                            </TouchableHighlight>
                         </ListItem.Content>
                       </ListItem>
                       </Card>
 
                     ))
                 }
+                 <View >
+                 <Card.Divider />
+                    </View>
   </View>
             </ImageBackground>
         </View>  
@@ -133,17 +136,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         //justifyContent: "space-around",
         //marginHorizontal: 60,
-        marginTop:10
+        marginTop:10,
   },
     deleteicon: {
         flex:1,
-        backgroundColor: "#fff",
+        backgroundColor: "#1982c4",
         borderRadius: 15,
         width: 60,
         height: 60,
         padding: 8,
         textAlign: 'center',
-       marginHorizontal: 60,
+        marginHorizontal: 120,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -157,14 +160,14 @@ const styles = StyleSheet.create({
     },
     infoicon: {
         flex:1,
-        backgroundColor: "#fff",
+        backgroundColor: "#1982c4",
         borderRadius: 15,
         width: 60,
         height: 60,
         padding: 8,
         textAlign: 'center',
-        //marginHorizontal: 225,
-        shadowColor: "#000",
+        marginHorizontal: 10,
+
         shadowOffset: {
             width: 0,
             height: 1,
@@ -183,6 +186,40 @@ const styles = StyleSheet.create({
         fontFamily: 'Tahoma'
 
     },
+    viewBtn2: {
+        backgroundColor: "#8B75B6",
+        borderRadius: 15,
+        width: 160,
+        height: 60,
+        textAlign: 'center',
+        paddingVertical: 20,
+        marginTop: 10,
+        marginHorizontal: 200,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 5,
+            height: 5,
+        },
+        shadowOpacity: 4.32,
+        shadowRadius: 5.46,
+        elevation: 9,
+
+    },
+    buttonText: {
+        color: "#EEEDE7",
+        fontSize: 16,
+        fontWeight: '500',
+        fontFamily: 'Roboto'
+
+    },
   
 
 });
+
+/* 
+                                                    
+                                                    <TouchableOpacity style={styles.detailbutton} onPress={() => {
+                                                         navigation.navigate('Productdetail', {
+                                                             itemid: item.id, });}}>
+                        <Text style={styles.detailtext}>Show Details</Text>
+                      </TouchableOpacity>*/

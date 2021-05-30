@@ -4,6 +4,7 @@ import { View, TextInput, StyleSheet, ImageBackground, TouchableOpacity, ScrollV
 import { Input } from 'react-native-elements';
 import config from '../env/config'
 import basemanager from '../service/baseservice';
+import TopBar from '../components/TopBar';
 
 const Category_add = () => {
 
@@ -27,6 +28,7 @@ const Category_add = () => {
 
     return (
         <View style={styles.container}>
+            <TopBar/>
             <ImageBackground source={require('../Images/background.jpg')} style={styles.image} >
 
                 <View>

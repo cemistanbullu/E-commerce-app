@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View,TouchableOpacity,SafeAreaView,ScrollView, StyleSheet,TouchableHighlight,Image,ImageBackground} from 'react-native';
 import { ListItem,Icon ,Card } from 'react-native-elements';
 import { NavigationContainer } from '@react-navigation/native';
+import TopBar from '../components/TopBar';
+import color from 'color';
 
 function Order_list({ route, navigation }) {
   
@@ -41,12 +43,15 @@ function Order_list({ route, navigation }) {
 
 }
 
+
   return (
+    
     <View style={styles.container}>
+      <TopBar/>
     <ImageBackground source={require('../Images/background.jpg')} style={styles.image1} >
       <View>
         {orders.slice(0,8).map((detail) => (
-          <Card >
+          <Card styles={{ card: { backgroundColor: 'red' }}}>
           <View style={styles.card}>
             <ListItem>
               <ListItem.Content>
@@ -57,7 +62,7 @@ function Order_list({ route, navigation }) {
                 <TouchableHighlight style={styles.deleteicon} onPress={() => { deleteCategory(detail.id) }}>
                                                 <View >
                                                     <Icon name='delete' />
-                                                    <text>Delete </text>
+                                                    <text >Delete </text>
                                                 </View>
                                             </TouchableHighlight>
 
@@ -66,6 +71,7 @@ function Order_list({ route, navigation }) {
           </View>
           </Card>
         ))}
+        <Card.Divider />
       </View>
       </ImageBackground>
         </View>
@@ -78,10 +84,9 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'flex-end',
-
   },
   card: {
-      backgroundColor: '#fff',
+      //backgroundColor: '#ffca3a',
       width: "%100",
       height: "%100",
       /* shadowColor: "#000",
@@ -103,7 +108,7 @@ const styles = StyleSheet.create({
   },
 
   deleteicon: {
-      backgroundColor: "#fff",
+      backgroundColor: "#1982c4",
       borderRadius: 15,
       width: 60,
       height: 60,
@@ -118,13 +123,10 @@ const styles = StyleSheet.create({
       },
       shadowOpacity: 1.22,
       shadowRadius: 2.22,
-
       elevation: 3,
-
   },
- 
   textStyle: {
-      color: "Black",
+      color: "black",
       fontSize: 16,
       fontWeight: 'bold',
       fontFamily: 'Tahoma'

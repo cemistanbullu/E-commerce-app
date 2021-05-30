@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, TouchableHighlight, TouchableOpacity, ImageBackground } from 'react-native'
 import { Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome'
-
+import TopBar from '../components/TopBar';
 
 
 
@@ -24,27 +24,17 @@ export default function Homescreen({ navigation }) {
 
 
     return (
+        
         <View style={styles.container} >
-
+<TopBar />
             <ImageBackground source={require('../Images/background.jpg')} style={styles.image}>
+            
 
 
 
-
-                <View><Text style={styles.title}>  Home Screen!</Text></View>
-
+                <View style={styles.title}> <Text style={styles.titletext}> Food Cort </Text></View>
 
 
-
-                <View>
-                    <TouchableOpacity onPress={() => goContact()}>
-                        <View style={styles.viewBtn1}>
-
-                            <Text style={styles.textStyle}>Go to Order!</Text>
-
-                        </View>
-                    </TouchableOpacity>
-                </View>
                 <View>
                     <TouchableOpacity onPress={() => goProducts()}>
                         <View style={styles.viewBtn2}>
@@ -59,6 +49,16 @@ export default function Homescreen({ navigation }) {
                         </View>
                     </TouchableOpacity>
                 </View>
+                <View>
+                    <TouchableOpacity onPress={() => goContact()}>
+                        <View style={styles.viewBtn1}>
+
+                            <Text style={styles.textStyle}>Go to Order!</Text>
+
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.titlebottom}> <Text style={styles.titlebottomtext}> Just for 1 click far! </Text></View>
 
 
             </ImageBackground>
@@ -150,13 +150,31 @@ const styles = StyleSheet.create({
         fontFamily: 'Tahoma'
 
     },
-    title: {
+    titletext: {
         color: '#e5e5e5',
-        fontSize: 30,
+        fontSize: 35,
         fontWeight: 'bold',
         marginHorizontal: 60,
         fontFamily: 'Tahoma',
-    },
 
+    },
+    title: {
+        alignItems:"center",
+        justifyContent: "center",
+    },
+    titlebottomtext: {
+        color: '#e5e5e5',
+        fontSize: 15,
+        fontWeight: 'bold',
+        marginHorizontal: 60,
+        fontFamily: 'Tahoma',
+        opacity:0.5
+
+    },
+    titlebottom: {
+        alignItems:"center",
+        justifyContent: "center",
+        marginTop:40
+    },
 
 });

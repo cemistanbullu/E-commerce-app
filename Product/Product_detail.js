@@ -3,10 +3,11 @@ import { View, Text } from 'react-native';
 import {ListItem, Icon} from 'react-native-elements';
 import {InteractionManager} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-
+import TopBar from '../components/TopBar';
 
 function Product_detail({ route, navigation }) {
-   /* const { id } = route.params;
+
+   // const { itemid } = route.params;
 
     const [products, setProducts] = useState([]);
 
@@ -16,54 +17,25 @@ function Product_detail({ route, navigation }) {
 
     }, []);
 
-    const fillData = (id) => {
-        fetch('https://northwind.vercel.app/api/products/'+id)
+    const fillData = (itemid) => {
+        fetch('https://northwind.vercel.app/api/products/'+ itemid)
         .then((res) => res.json())
         .then((products) => {
 
            setProducts(products);
         })
-    }*/
+    }
 
-const { id } = route.params;
-
-const [products, setProducts] = useState({});
-
-useEffect(() => {
-  fetch('https://northwind.vercel.app/api/products/' + id)
-    .then((res) => res.json())
-    .then((products) => {
-      setProducts(products);
-    });
-}, []);
 
     return (
-      /* <View > 
-        {products.map((item) => (
+       <View > 
                 <ListItem>
                 <ListItem.Content>
-
-                  <ListItem.Title>{item.supplierId}</ListItem.Title>
-                  <ListItem.Title>{item.name}</ListItem.Title>
-                  
+                  <ListItem.Title>{products.supplierId}</ListItem.Title>
+                  <ListItem.Title>{products.name}</ListItem.Title>
                 </ListItem.Content>
               </ListItem>
-            ))
-        }
-
-</View>
-*/
-
-<View>
-
-
-                <TextInput>dfv</TextInput>
-          
-        
-
 </View>
 );
 }
-    
-
 export default Product_detail;

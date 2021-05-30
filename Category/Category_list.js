@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ListItem, Icon, Card } from 'react-native-elements';
 import {InteractionManager,View, Text, StyleSheet,Button,Alert,TouchableHighlight,TouchableOpacity,Image,ImageBackground} from 'react-native';
+import TopBar from '../components/TopBar';
 
 
 
@@ -54,6 +55,7 @@ export default function Category_list({ navigation }) {
 
     return (
         <View style={styles.container}>
+            <TopBar/>
             <ImageBackground source={require('../Images/background.jpg')} style={styles.image1} >
                 <View>
                     {
@@ -147,7 +149,7 @@ const styles = StyleSheet.create({
     },
 
     deleteicon: {
-        backgroundColor: "#fff",
+        backgroundColor: "#1982c4",
         borderRadius: 15,
         width: 60,
         height: 60,
@@ -161,6 +163,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 1.22,
         shadowRadius: 2.22,
+        marginTop:15,
 
         elevation: 3,
 
