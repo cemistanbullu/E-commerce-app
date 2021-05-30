@@ -7,18 +7,18 @@ import TopBar from '../components/TopBar';
 
 function Product_detail({ route, navigation }) {
 
-   // const { itemid } = route.params;
+    const { id } = route.params;
 
     const [products, setProducts] = useState([]);
 
 
     useEffect(() => {
-        fillData();
+        fillData(id);
 
     }, []);
 
-    const fillData = (itemid) => {
-        fetch('https://northwind.vercel.app/api/products/'+ itemid)
+    const fillData = (id) => {
+        fetch('https://northwind.vercel.app/api/products/'+ id)
         .then((res) => res.json())
         .then((products) => {
 

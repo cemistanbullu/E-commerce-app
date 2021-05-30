@@ -59,14 +59,14 @@ export default function Category_list({ navigation }) {
             <ImageBackground source={require('../Images/background.jpg')} style={styles.image1} >
                 <View>
                     {
-                        categories.slice(0, 7).map((item) => (
+                        categories.slice(0, 3).map((item,key) => (
                             <Card >
                                 <View style={styles.card} >
                                     <ListItem >
                                         <ListItem.Content  >
                                             <View>
                                                 <ListItem.Title style={styles.textStyle}>Name: {item.name}</ListItem.Title>
-                                                <Card.Image style={styles.image2} source={require('../Images/vegetable1.jpg')} />
+                                                <Card.Image style={styles.image2} source={require('../Images/vegetable'+(key+1)+'.jpg')} />
                                                 <Card.Divider />
                                                 <ListItem.Subtitle >Description: {item.description}</ListItem.Subtitle>
                                             </View>

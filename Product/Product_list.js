@@ -48,7 +48,7 @@ export default function Product_list({ route,navigation }) {
        
     }
     const gotoDetailPage = (id)=>{
-        navigation.navigate('Productdetail', 'https://northwind.vercel.app/api/products/' + id)
+       navigation.navigate('Productdetail', {id:id})
     }
     return (
         <View style={styles.container}>
